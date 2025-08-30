@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>A Treasure Hunt for Doctereeeeeeeeeeee</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <style>
+    body {
+      background: url('abhi bocchu.png') no-repeat center center fixed;
+      background-size: cover;
+      font-family: 'Segoe UI', sans-serif;
+    }
+    .glass {
+      backdrop-filter: blur(18px);
+      background: rgba(255, 255, 255, 0.15);
+      border: 1px solid rgba(255, 255, 255, 0.25);
+    }
+    .heart {
+      position: absolute;
+      color: #ff4d6d;
+      font-size: 20px;
+      animation: floatUp 6s linear infinite;
+    }
+    @keyframes floatUp {
+      0% { transform: translateY(0) scale(1); opacity: 1; }
+      100% { transform: translateY(-800px) scale(1.5); opacity: 0; }
+    }
+    /* Glowing animation for buttons */
+    .glow {
+      box-shadow: 0 0 15px rgba(255, 100, 150, 0.7), 0 0 30px rgba(255, 50, 120, 0.6);
+      transition: all 0.3s ease-in-out;
+    }
+    .glow:hover {
+      box-shadow: 0 0 30px rgba(255, 100, 150, 1), 0 0 60px rgba(255, 50, 120, 0.9);
+      transform: scale(1.08);
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col items-center justify-center p-6 relative overflow-hidden">
+
+  <!-- Floating Hearts (background) -->
+  <script>
+    function createHeart() {
+      const heart = document.createElement("div");
+      heart.classList.add("heart");
+      heart.style.left = Math.random() * 100 + "vw";
+      heart.style.animationDuration = 4 + Math.random() * 3 + "s";
+      heart.innerHTML = "💖";
+      document.body.appendChild(heart);
+      setTimeout(() => heart.remove(), 6000);
+    }
+    setInterval(createHeart, 700);
+  </script>
+
+  <!-- Gradient Overlay -->
+  <div class="absolute inset-0 bg-gradient-to-br from-pink-900/40 via-red-800/30 to-pink-900/40"></div>
+
+  <!-- Steps Container -->
+  <div class="relative z-10 max-w-lg w-full space-y-10">
+
+    <!-- Step 1 -->
+    <div id="step1" class="glass shadow-2xl rounded-3xl p-10 text-center text-white relative overflow-hidden transition-all duration-500 hover:scale-105 hover:shadow-pink-500/60">
+      <h2 class="text-4xl font-extrabold bg-gradient-to-r from-pink-400 to-red-400 bg-clip-text text-transparent drop-shadow-lg">🔍 Step 1</h2>
+      <p class="mt-4 text-lg text-pink-100">Doctereeeeeeeeeeee, what’s the color I always say makes you glow like a queen? 👑</p>
+      <button onclick="nextStep(2)" class="mt-6 px-10 py-3 rounded-2xl text-white font-semibold bg-gradient-to-r from-pink-500 to-red-500 glow">Pink 🌸</button>
+    </div>
+
+    <!-- Step 2 -->
+    <div id="step2" class="hidden glass shadow-2xl rounded-3xl p-10 text-center text-white relative overflow-hidden hover:scale-105 hover:shadow-red-500/60">
+      <h2 class="text-4xl font-extrabold bg-gradient-to-r from-red-400 to-pink-400 bg-clip-text text-transparent">🧩 Step 2</h2>
+      <p class="mt-4 text-lg text-pink-100">When I feel lost, there’s one word that brings me peace and joy… Can you guess? ✨</p>
+      <button onclick="nextStep(3)" class="mt-6 px-10 py-3 rounded-2xl text-white font-semibold bg-gradient-to-r from-red-500 to-pink-500 glow">Your name 💖</button>
+    </div>
+
+    <!-- Step 3 -->
+    <div id="step3" class="hidden glass shadow-2xl rounded-3xl p-10 text-center text-white hover:scale-105 hover:shadow-pink-500/60">
+      <h2 class="text-4xl font-extrabold bg-gradient-to-r from-pink-400 to-red-400 bg-clip-text text-transparent">💎 Step 3</h2>
+      <p class="mt-4 text-lg text-pink-100">If I could run away with you, the city of love is the only place in my heart... 🌹✨</p>
+      <button onclick="nextStep(4)" class="mt-6 px-10 py-3 rounded-2xl text-white font-semibold bg-gradient-to-r from-pink-500 to-red-500 glow">Paris – with you 💕</button>
+    </div>
+
+    <!-- Step 4 -->
+    <div id="step4" class="hidden glass shadow-2xl rounded-3xl p-10 text-center text-white hover:scale-105 hover:shadow-red-500/60">
+      <h2 class="text-4xl font-extrabold bg-gradient-to-r from-red-400 to-pink-400 bg-clip-text text-transparent">🎶 Step 4</h2>
+      <p class="mt-4 text-lg text-pink-100">Doctereeeeeeeeeeee, you’re my favorite song. Which track feels like “us”? 🎵</p>
+      <button onclick="nextStep(5)" class="mt-6 px-10 py-3 rounded-2xl text-white font-semibold bg-gradient-to-r from-red-500 to-pink-500 glow">Perfect – Ed Sheeran 💕</button>
+    </div>
+
+    <!-- Step 5 -->
+    <div id="step5" class="hidden glass shadow-2xl rounded-3xl p-10 text-center text-white hover:scale-105 hover:shadow-pink-500/60">
+      <h2 class="text-4xl font-extrabold bg-gradient-to-r from-pink-400 to-red-400 bg-clip-text text-transparent">🍫 Step 5</h2>
+      <p class="mt-4 text-lg text-pink-100">Whenever I see this, I think of your sweetness… 🍯</p>
+      <button onclick="nextStep(6)" class="mt-6 px-10 py-3 rounded-2xl text-white font-semibold bg-gradient-to-r from-pink-500 to-red-500 glow">Chocolate 🍫</button>
+    </div>
+
+    <!-- Step 6 -->
+    <div id="step6" class="hidden glass shadow-2xl rounded-3xl p-10 text-center text-white hover:scale-105 hover:shadow-red-500/60">
+      <h2 class="text-4xl font-extrabold bg-gradient-to-r from-red-400 to-pink-400 bg-clip-text text-transparent">🌍 Step 6</h2>
+      <p class="mt-4 text-lg text-pink-100">If I had the whole world in front of me, I’d still choose one person endlessly… 💞</p>
+      <button onclick="nextStep(7)" class="mt-6 px-10 py-3 rounded-2xl text-white font-semibold bg-gradient-to-r from-red-500 to-pink-500 glow">You, Doctereeeeeeeeeeee ❤️</button>
+    </div>
+
+    <!-- Step 7 -->
+    <div id="step7" class="hidden glass shadow-2xl rounded-3xl p-10 text-center text-white hover:scale-110 hover:shadow-pink-500/70">
+      <h2 class="text-4xl font-extrabold bg-gradient-to-r from-pink-400 to-red-400 bg-clip-text text-transparent">🎁 Final Step</h2>
+      <p class="mt-4 text-lg text-pink-100">All these clues led to this one moment, Doctereeeeeeeeeeee… 💌</p>
+      <button onclick="revealProposal()" class="mt-6 px-12 py-4 rounded-2xl text-white font-semibold bg-gradient-to-r from-pink-600 to-red-600 glow">Reveal 💕</button>
+    </div>
+
+    <!-- Proposal -->
+    <div id="proposal" class="hidden glass shadow-2xl rounded-3xl p-10 text-center text-white relative z-20">
+      <h2 class="text-4xl font-extrabold text-pink-300 animate-bounce">💖 Doctereeeeeeeeeeee 💖</h2>
+      <p class="mt-4 text-lg">I’ve loved you through every word, every clue, every heartbeat of this journey… and now, I have one final question: 💍</p>
+      <p class="mt-4 text-2xl font-semibold">Will you be mine forever? ❤️</p>
+      <div class="mt-6 flex gap-6 justify-center">
+        <button onclick="showResponse('happy')" class="bg-green-500 text-white px-6 py-3 rounded-xl hover:bg-green-600">Yes 💕</button>
+        <button onclick="showResponse('sad')" class="bg-gray-600 text-white px-6 py-3 rounded-xl hover:bg-gray-700">I’ll think 😔</button>
+      </div>
+    </div>
+
+    <!-- Hidden Responses -->
+    <div id="happyResponse" class="hidden text-center mt-10 relative">
+      <h2 class="text-5xl font-extrabold text-pink-300 drop-shadow-lg animate-bounce">🎆 Yay! You said YES! 🎆</h2>
+      <p class="mt-6 text-2xl text-white animate-pulse">You’ve made me the happiest person alive, Doctereeeeeeeeeeee! ❤️</p>
+      <p class="mt-4 text-lg text-white italic">Forever starts now 💕</p>
+      <div id="heartsContainer" class="absolute inset-0 pointer-events-none"></div>
+    </div>
+
+    <div id="sadResponse" class="hidden text-center mt-10">
+      <h2 class="text-4xl font-extrabold text-red-300">😢 Oh no...</h2>
+      <p class="mt-4 text-xl text-white">I’ll wait as long as it takes, Doctereeeeeeeeeeee… because you’re worth it 💔</p>
+    </div>
+  </div>
+
+  <script>
+    function nextStep(step) {
+      const current = step - 1;
+      document.getElementById("step" + current).classList.add("hidden");
+      document.getElementById("step" + step).classList.remove("hidden");
+      gsap.fromTo("#step" + step, {opacity:0, y:50}, {opacity:1, y:0, duration:1});
+    }
+    function revealProposal() {
+      document.querySelectorAll("[id^='step']").forEach(el => el.classList.add("hidden"));
+      document.getElementById("proposal").classList.remove("hidden");
+      gsap.fromTo("#proposal", {scale:0.5, opacity:0}, {scale:1, opacity:1, duration:1.2, ease:"elastic"});
+    }
+    function showResponse(type) {
+      document.getElementById("proposal").classList.add("hidden");
+      if (type === "happy") {
+        document.getElementById("happyResponse").classList.remove("hidden");
+        launchHearts();
+      } else {
+        document.getElementById("sadResponse").classList.remove("hidden");
+      }
+    }
+    // Extra hearts on YES
+    function launchHearts() {
+      const container = document.getElementById("heartsContainer");
+      for (let i = 0; i < 30; i++) {
+        let heart = document.createElement("div");
+        heart.innerHTML = "💖";
+        heart.style.position = "absolute";
+        heart.style.left = Math.random() * window.innerWidth + "px";
+        heart.style.bottom = "0px";
+        heart.style.fontSize = (20 + Math.random() * 30) + "px";
+        heart.style.opacity = 0.8;
+        container.appendChild(heart);
+        gsap.to(heart, {
+          y: -window.innerHeight,
+          duration: 4 + Math.random() * 2,
+          x: (Math.random() - 0.5) * 200,
+          ease: "power1.out",
+          onComplete: () => heart.remove()
+        });
+      }
+    }
+  </script>
+</body>
+</html>
